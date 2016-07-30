@@ -14,7 +14,7 @@ public class RockPaperScissorModel {
 		// Create the win conditions
 		// Win and loss conditions for Rock
 		if (userChoice.equalsIgnoreCase("Bulbasaur")){
-			if(computerChoice.equalsIgnoreCase("Charmander") || ("Ice")){
+			if(computerChoice.equalsIgnoreCase("Charmander") || computerChoice.equalsIgnoreCase("Ice")){
 				// if user chooses rock and computer chooses paper
 				losses++;	
 				// increment the losses interger by 1
@@ -81,18 +81,18 @@ public class RockPaperScissorModel {
 		// assigning a random generator to a double int
 		// the Math.random method returns a value that ranges from 0-1 therefore we can abuse that to determine our computer logic
 		
-		if(random < .20){
-			return "Bulbasaur";
-		// if the random number returned is less than 0.33, computer will choose rock	
-		} else if (random < .40){
-			return "Charmander";
-		// if the random number returned is less than 0.66, computer will choose paper	
-		}else if (random < .60){
-			return "Squirtle";
-		// if the random number returned is less than 0.66, computer will choose paper	
-		}else if (random < .80){
-			return "Ice Type";
-		// if the random number returned is less than 0.66, computer will choose paper	
+		if(random > 0){
+			return "Ice";
+//		// if the random number returned is less than 0.33, computer will choose rock	
+//		} else if (random < .40){
+//			return "Charmander";
+//		// if the random number returned is less than 0.66, computer will choose paper	
+//		}else if (random < .60){
+//			return "Squirtle";
+//		// if the random number returned is less than 0.66, computer will choose paper	
+//		}else if (random < .80){
+//			return "Ice Type";
+//		// if the random number returned is less than 0.66, computer will choose paper	
 		} else {
 			return "Rock Type";
 		// otherwise if the other 2 condidtions are not met, choose scissors (any number from 0.67 - 1)	
