@@ -34,6 +34,8 @@ public class RockPaperScissorsListener implements ActionListener {
 	JButton bulbasaurButton;
 	JButton charmanderButton;
 	JButton squirtleButton;
+	JButton iceButton;
+	JButton rockButton;
 	// declaring buttons
 	
 
@@ -41,6 +43,8 @@ public class RockPaperScissorsListener implements ActionListener {
 			JButton bulbasaurButton, 
 			JButton charmanderButton, 
 			JButton squirtleButton,
+			JButton iceButton,
+			JButton rockButton,
 			JLabel playerChoiceLabel,
 			JLabel computerChoiceLabel,
 			JLabel outcomeLabel, 
@@ -54,6 +58,8 @@ public class RockPaperScissorsListener implements ActionListener {
 		this.bulbasaurButton = bulbasaurButton;
 		this.charmanderButton = charmanderButton;
 		this.squirtleButton = squirtleButton;
+		this.iceButton = iceButton;
+		this.rockButton = rockButton;
 		// assigning the passed button variables to their corresponding buttons
 		
 		this.playerChoice = playerChoiceLabel;
@@ -75,6 +81,10 @@ public class RockPaperScissorsListener implements ActionListener {
 			playerChoice = "Charmander";
 		} else if(e.getSource() == squirtleButton) {
 			playerChoice = "Squirtle";
+		} else if(e.getSource() == iceButton) {
+			playerChoice = "Ice";
+		} else if(e.getSource() == rockButton) {
+			playerChoice = "Rock";
 		} else {
 			playerChoice = "SOMETHING IS WRONG!!!";
 		// check for errors

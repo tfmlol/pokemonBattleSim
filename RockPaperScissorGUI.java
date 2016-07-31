@@ -7,26 +7,28 @@ import java.awt.event.ActionListener;
 // to ensure that style is consistent across OS
 // Swing basicaly is written over top of AWT
 
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+//import javax.swing.Box;
+//import javax.swing.BoxLayout;
+//import javax.swing.ImageIcon;
+//import javax.swing.JButton;
+//import javax.swing.JFrame;
+//import javax.swing.JLabel;
+//import javax.swing.JPanel;
+//no longer needed to import swing libraries indiviually because I decided to call them all
 
 import javax.swing.*;
 
 public class RockPaperScissorGUI extends JFrame {
-//	JPanel pnl = new JPanel();
-//	// Creating a panel
-//	ImageIcon charmanderFront = new ImageIcon("src/Images/charFront.png");
-//	// Initializing Images by assigning them variables
-//	
-//	// Creating an object and passing an image to the object
-//	 JButton charFront = new JButton(charmanderFront);
 
 	public static void main(String[] args) {
+		
+//		JPanel pnl = new JPanel();
+//		// Creating a panel
+//		ImageIcon charmanderFront = new ImageIcon("src/Images/charFront.png");
+//		// Initializing Images by assigning them variables
+//		
+//		// Creating an object and passing an image to the object
+//		 JButton charFront = new JButton(charmanderFront);
 		
 		JFrame frame = new JFrame("projectPokemon");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -42,6 +44,8 @@ public class RockPaperScissorGUI extends JFrame {
 		JButton bulbasaurButton = new JButton("Bulbasaur");
 		JButton charmanderButton = new JButton("Charmander");
 		JButton squirtleButton = new JButton("Squirtle");
+		JButton iceButton = new JButton("Ice");
+		JButton rockButton = new JButton("Rock");
 		// creating buttons for selections using JButtons
 		
 		JLabel winsLabel = new JLabel("Wins: 0", JLabel.CENTER);
@@ -53,6 +57,8 @@ public class RockPaperScissorGUI extends JFrame {
 				bulbasaurButton, 
 				charmanderButton, 
 				squirtleButton,
+				iceButton,
+				rockButton,
 				playerChoiceLabel,
 				computerChoiceLabel,
 				outcomeLabel,
@@ -65,6 +71,8 @@ public class RockPaperScissorGUI extends JFrame {
 		bulbasaurButton.addActionListener(listener);
 		charmanderButton.addActionListener(listener);
 		squirtleButton.addActionListener(listener);
+		iceButton.addActionListener(listener);
+		rockButton.addActionListener(listener);
 		// assigns the buttons being passed to each individual button selection so we know which button is which
 		
 		// This is going to be our Top Panel
@@ -90,6 +98,10 @@ public class RockPaperScissorGUI extends JFrame {
 		buttonPanel.add(charmanderButton);
 		buttonPanel.add(Box.createGlue());
 		buttonPanel.add(squirtleButton);
+		buttonPanel.add(Box.createGlue());
+		buttonPanel.add(iceButton);
+		buttonPanel.add(Box.createGlue());
+		buttonPanel.add(rockButton);
 		// adding the selection buttons to the buttonPanel
 		// What does Box.createGlue() do?
 		
@@ -113,7 +125,7 @@ public class RockPaperScissorGUI extends JFrame {
 		// calls the totalsPanel and places our scoreboard in the southern quadrant of the GUI
 		
 //		pnl.add(charFront);
-		frame.setSize(600, 600);
+		frame.setSize(500, 300);
 		frame.setVisible(true);
 		// sets the size of the window(Width, Height in pixels) and makes it visible
 	}

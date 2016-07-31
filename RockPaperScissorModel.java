@@ -3,11 +3,12 @@ public class RockPaperScissorModel {
 	private int wins = 0;
 	private int losses = 0;
 	private int ties = 0;
+	private int HP = 100;
 	// creating variables for the results so we can keep track of them and possibly make a GUI
 	
 	public static enum GameOutcome {
 	// an enum is used because booleans can only output 2 possibilities whereas an enum can output 3 	
-		WIN, LOSE, TIE;
+		DCALC, WIN, LOSE, TIE;
 	}
 	
 	public GameOutcome getGameOutcome(String userChoice, String computerChoice){
@@ -19,7 +20,7 @@ public class RockPaperScissorModel {
 				losses++;	
 				// increment the losses interger by 1
 				return GameOutcome.LOSE;
-			} else if (computerChoice.equalsIgnoreCase("Squirtle")){
+			} else if (computerChoice.equalsIgnoreCase("Squirtle") || computerChoice.equalsIgnoreCase("Rock")){
 				// if user chooses rock and computer chooses scissors
 				wins++;
 				// increment the wins interger by 1
@@ -28,12 +29,12 @@ public class RockPaperScissorModel {
 		}
 		// Win and loss conditions for paper
 		else if(userChoice.equalsIgnoreCase("Charmander")){
-			if(computerChoice.equalsIgnoreCase("Squirtle")){
+			if(computerChoice.equalsIgnoreCase("Squirtle") || computerChoice.equalsIgnoreCase("Rock")){
 				// if user picks paper and computer picks scissors
 				losses++;
 				// increment the losses interger by 1
 				return GameOutcome.LOSE;
-			} else if(computerChoice.equalsIgnoreCase("Bulbasaur")) {
+			} else if(computerChoice.equalsIgnoreCase("Bulbasaur") || computerChoice.equalsIgnoreCase("Ice")) {
 				// if user picks paper and computer picks rock
 				wins++;
 				// increment the wins interger by 1
@@ -42,26 +43,40 @@ public class RockPaperScissorModel {
 		}
 		// Win and loss conditions for scissors
 				else if(userChoice.equalsIgnoreCase("Squirtle")){
-					if(computerChoice.equalsIgnoreCase("Bulbasaur")){
+					if(computerChoice.equalsIgnoreCase("Bulbasaur") || computerChoice.equalsIgnoreCase("Ice")){
 						// if user picks scissors and computer picks rocks
 						losses++;
 						// increment the losses interger by 1
 						return GameOutcome.LOSE;
-					} else if(computerChoice.equalsIgnoreCase("Charmander")) {
+					} else if(computerChoice.equalsIgnoreCase("Charmander") || computerChoice.equalsIgnoreCase("Rock")) {
 						// if user picks scissors and computer picks paper
 						wins++;
 						// increment the wins interger by 1
 						return GameOutcome.WIN;
 					}
 				}
-			// ice win conditions
-					else if(userChoice.equalsIgnoreCase("Ice")){
-						if(computerChoice.equalsIgnoreCase("Charmander")){
+		// ice win conditions
+				else if(userChoice.equalsIgnoreCase("Ice")){
+					if(computerChoice.equalsIgnoreCase("Charmander") || computerChoice.equalsIgnoreCase("Rock")){
+						// if user picks scissors and computer picks rocks
+						losses++;
+						// increment the losses interger by 1
+						return GameOutcome.LOSE;
+					} else if(computerChoice.equalsIgnoreCase("Bulbasaur") || computerChoice.equalsIgnoreCase("Squirtle")) {
+						// if user picks scissors and computer picks paper
+						wins++;
+						// increment the wins interger by 1
+						return GameOutcome.WIN;
+					}
+				}
+		// rock win conditions
+					else if(userChoice.equalsIgnoreCase("Rock")){
+						if(computerChoice.equalsIgnoreCase("Bulbasaur") || computerChoice.equalsIgnoreCase("Squirtle")){
 							// if user picks scissors and computer picks rocks
 							losses++;
 							// increment the losses interger by 1
 							return GameOutcome.LOSE;
-						} else if(computerChoice.equalsIgnoreCase("Bulbasaur")) {
+						} else if(computerChoice.equalsIgnoreCase("Ice") || computerChoice.equalsIgnoreCase("Charmander")) {
 							// if user picks scissors and computer picks paper
 							wins++;
 							// increment the wins interger by 1
@@ -81,18 +96,18 @@ public class RockPaperScissorModel {
 		// assigning a random generator to a double int
 		// the Math.random method returns a value that ranges from 0-1 therefore we can abuse that to determine our computer logic
 		
-		if(random > 0){
-			return "Ice";
-//		// if the random number returned is less than 0.33, computer will choose rock	
-//		} else if (random < .40){
-//			return "Charmander";
-//		// if the random number returned is less than 0.66, computer will choose paper	
-//		}else if (random < .60){
-//			return "Squirtle";
-//		// if the random number returned is less than 0.66, computer will choose paper	
-//		}else if (random < .80){
-//			return "Ice Type";
-//		// if the random number returned is less than 0.66, computer will choose paper	
+		if(random < .20){
+			return "Bulbasaur";
+		// if the random number returned is less than 0.33, computer will choose rock	
+		} else if (random < .40){
+			return "Charmander";
+		// if the random number returned is less than 0.66, computer will choose paper	
+		}else if (random < .60){
+			return "Squirtle";
+		// if the random number returned is less than 0.66, computer will choose paper	
+		}else if (random < .80){
+			return "Ice Type";
+		// if the random number returned is less than 0.66, computer will choose paper	
 		} else {
 			return "Rock Type";
 		// otherwise if the other 2 condidtions are not met, choose scissors (any number from 0.67 - 1)	
