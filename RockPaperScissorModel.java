@@ -3,7 +3,7 @@ public class RockPaperScissorModel {
 	private int wins = 0;
 	private int losses = 0;
 	private int ties = 0;
-	private int HP = 100;
+	int HP = 100;
 	// creating variables for the results so we can keep track of them and possibly make a GUI
 	
 	public static enum GameOutcome {
